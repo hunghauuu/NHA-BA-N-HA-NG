@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gian hàng - Nhà Bếp Việt</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* HEADER */
+.header {
+    background: white;
+    border-bottom: 1px solid #eee;
+}
+
+.header-inner {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1677ff;
+}
+
+.search {
+    flex: 1;
+    display: flex;
+}
+
+.search input {
+    width: 100%;
+    padding: 13px 18px;
+    border: 1px solid #ddd;
+    border-radius: 8px 0 0 8px;
+    outline: none;
+}
+
+.search button {
+    width: 55px;
+    border: none;
+    background: #1677ff;
+    color: white;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+}
+
+.cart {
+    font-size: 25px;
+}
+
+/* SHOP HEADER */
+.shop-header {
+    background: white;
+    margin-top: 15px;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.shop-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.shop-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #1677ff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+}
+
+.shop-name {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.shop-rating {
+    color: #ff9800;
+    margin-top: 8px;
+}
+
+.shop-description {
+    color: #777;
+    margin-top: 8px;
+}
+
+/* CATEGORY */
+.categories {
+    background: white;
+    margin-top: 15px;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.categories h2 {
+    margin-bottom: 15px;
+}
+
+.category-list {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.category {
+    padding: 12px 20px;
+    background: #f2f6ff;
+    color: #1677ff;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.category.active {
+    background: #1677ff;
+    color: white;
+}
+
+/* BANNER */
+.banner {
+    margin-top: 15px;
+    border-radius: 12px;
+    padding: 45px;
+    background: linear-gradient(100deg, #1677ff, #55a5ff);
+    color: white;
+}
+
+.banner h1 {
+    font-size: 34px;
+}
+
+.banner p {
+    margin-top: 12px;
+}
+
+/* PRODUCTS */
+.products-section {
+    margin-top: 20px;
+}
+
+.products-section h2 {
+    margin-bottom: 15px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.product {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+.product:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+}
+
+.product-image {
+    height: 180px;
+    background: #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+}
+
+.product-info {
+    padding: 14px;
+}
+
+.product-name {
+    height: 42px;
+    line-height: 21px;
+}
+
+.price {
+    color: #e53935;
+    font-size: 19px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.old-price {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 13px;
+}
+
+.rating {
+    color: #ff9800;
+    font-size: 13px;
+    margin-top: 7px;
+}
+
+.buy {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    background: #1677ff;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    .header-inner {
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-image {
+        height: 140px;
+    }
+
+    .banner {
+        padding: 25px;
+    }
+
+    .banner h1 {
+        font-size: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container header-inner">
+
+        <div class="logo">
+            🛍️ MarketPlace
+        </div>
+
+        <div class="search">
+            <input
+                type="text"
+                placeholder="Tìm kiếm sản phẩm trong cửa hàng..."
+                id="searchInput"
+            >
+            <button onclick="searchProduct()">🔍</button>
+        </div>
+
+        <div class="cart">
+            🛒
+        </div>
+
+    </div>
+</header>
+
+
+<main class="container">
+
+    <!-- SHOP -->
+    <section class="shop-header">
+
+        <div class="shop-info">
+
+            <div class="shop-logo">
+                🏠
+            </div>
+
+            <div>
+                <div class="shop-name">
+                    Nhà Bếp Việt
+                </div>
+
+                <div class="shop-rating">
+                    ⭐ 4.9 · 2.5K đánh giá
+                </div>
+
+                <div class="shop-description">
+                    Đồ ăn ngon • Đồ gia dụng • Sản phẩm tiện ích cho gia đình
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CATEGORY -->
+    <section class="categories">
+
+        <h2>Danh mục sản phẩm</h2>
+
+        <div class="category-list">
+
+            <div class="category active">
+                Tất cả
+            </div>
+
+            <div class="category">
+                🍜 Đồ ăn
+            </div>
+
+            <div class="category">
+                🥤 Đồ uống
+            </div>
+
+            <div class="category">
+                🍳 Đồ nhà bếp
+            </div>
+
+            <div class="category">
+                🧹 Đồ gia dụng
+            </div>
+
+            <div class="category">
+                🧺 Đồ dùng gia đình
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BANNER -->
+    <section class="banner">
+
+        <h1>
+            Ưu đãi đặc biệt hôm nay
+        </h1>
+
+        <p>
+            Giảm đến 30% cho các sản phẩm đồ ăn và gia dụng
+        </p>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section class="products-section">
+
+        <h2>
+            🔥 Sản phẩm bán chạy
+        </h2>
+
+        <div class="products" id="products">
+
+            <div class="product">
+
+                <div class="product-image">
+                    🍜
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-name">
+                        Mì cay Hàn Quốc vị bò
+                    </div>
+
+                    <div class="price">
+                        45.000đ
+                    </div>
+
+                    <div class="old-price">
+                        55.000đ
+                    </div>
+
+                    <div class="rating">
+                        ⭐ 4.9 · Đã bán 1.2K
+                    </div>
+
+                    <button class="buy">
+                        Thêm vào giỏ
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="product">
+
+                <div class="product-image">
+                    🍯
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-name">
+                        Mật ong nguyên chất
+                    </div>
+
+                    <div class="price">
+                        120.000đ
+                    </div>
+
+                    <div class="old-price">
+                        150.000đ
+                    </div>
+
+                    <div class="rating">
+                        ⭐ 4.8 · Đã bán 860
+                    </div>
+
+                    <button class="buy">
+                        Thêm vào giỏ
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="product">
+
+                <div class="product-image">
+                    🍳
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-name">
+                        Chảo chống dính cao cấp
+                    </div>
+
+                    <div class="price">
+                        299.000đ
+                    </div>
+
+                    <div class="old-price">
+                        399.000đ
+                    </div>
+
+                    <div class="rating">
+                        ⭐ 4.9 · Đã bán 2.1K
+                    </div>
+
+                    <button class="buy">
+                        Thêm vào giỏ
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="product">
+
+                <div class="product-image">
+                    🧹
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-name">
+                        Bộ dụng cụ vệ sinh nhà cửa
+                    </div>
+
+                    <div class="price">
+                        189.000đ
+                    </div>
+
+                    <div class="old-price">
+                        230.000đ
+                    </div>
+
+                    <div class="rating">
+                        ⭐ 4.7 · Đã bán 750
+                    </div>
+
+                    <button class="buy">
+                        Thêm vào giỏ
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="product">
+
+                <div class="product-image">
+                    🍚
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-name">
+                        Gạo ST25 cao cấp 5kg
+                    </div>
+
+                    <div class="price">
+                        145.000đ
+                    </div>
+
+                    <div class="old-price">
+                        175.000đ
+                    </div>
+
+                    <div class="rating">
+                        ⭐ 4.9 · Đã bán 3.5K
+                    </div>
+
+                    <button class="buy">
+                        Thêm vào giỏ
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script>
+
+function searchProduct() {
+
+    const keyword =
+        document.getElementById("searchInput").value.toLowerCase();
+
+    const products =
+        document.querySelectorAll(".product");
+
+    products.forEach(product => {
+
+        const name =
+            product.querySelector(".product-name")
+            .innerText
+            .toLowerCase();
+
+        if (name.includes(keyword)) {
+            product.style.display = "block";
+        } else {
+            product.style.display = "none";
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
