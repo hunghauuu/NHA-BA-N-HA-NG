@@ -1,214 +1,242 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chợ Phú Thọ - Mua bán tại Việt Trì & Thị xã Phú Thọ</title>
-<meta name="description" content="Chợ Phú Thọ - nền tảng mua bán địa phương tại Việt Trì và Thị xã Phú Thọ.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chợ Phú Thọ — Mua bán tại Việt Trì & Thị xã Phú Thọ</title>
+<meta name="description" content="Chợ Phú Thọ — sàn mua bán địa phương dành cho Việt Trì và Thị xã Phú Thọ.">
 <style>
 :root{
-  --green:#0f9d5b;--green-dark:#087845;--green-soft:#eaf8f0;
-  --text:#1e2a24;--muted:#6b7a72;--bg:#f5f7f6;--white:#fff;
-  --line:#e2e9e5;--orange:#ed6b2f;--shadow:0 10px 30px rgba(20,50,35,.08);
+  --g:#10a05a;--gd:#087844;--gl:#eaf8f0;--bg:#f5f7f6;--t:#1d2923;--m:#6c7a73;
+  --line:#e1e8e4;--card:#fff;--o:#e6652a;--red:#bd3c3c;--shadow:0 10px 28px rgba(20,45,32,.08)
 }
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
-button,input,select,textarea{font:inherit}button{cursor:pointer}
-a{text-decoration:none;color:inherit}.wrap{width:min(1180px,calc(100% - 30px));margin:auto}
-header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
-.nav{height:74px;display:flex;align-items:center;gap:18px}.logo{font-size:25px;font-weight:900;white-space:nowrap}.logo span{color:var(--green)}
-.search{display:flex;flex:1;max-width:610px;border:1px solid var(--line);background:#f4f6f5;border-radius:12px;overflow:hidden}
-.search input{flex:1;border:0;outline:0;background:transparent;padding:12px 14px}.search button{border:0;background:var(--green);color:#fff;padding:0 18px;font-weight:700}
-.actions{display:flex;align-items:center;gap:8px}.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:700}.btn.primary{background:var(--green);color:#fff}.btn.primary:hover{background:var(--green-dark)}
-.btn.light{background:var(--green-soft);color:var(--green-dark)}.btn.ghost{background:transparent}.menu{background:#f0f4f2;padding:10px;border-radius:10px}
-.hero{background:linear-gradient(135deg,#e8f8ef,#f8fcfa);padding:54px 0}.hero-grid{display:grid;grid-template-columns:1.45fr .72fr;gap:40px;align-items:center}
-.badge{display:inline-block;background:#dff4e8;color:var(--green-dark);padding:6px 10px;border-radius:999px;font-size:13px;font-weight:800}
-h1{font-size:48px;line-height:1.05;margin:15px 0}.hero h1 span{color:var(--green)}.hero p{font-size:17px;color:var(--muted);max-width:680px}
-.hero-search{display:flex;background:#fff;border:1px solid var(--line);padding:5px;border-radius:14px;box-shadow:var(--shadow);max-width:720px;margin-top:22px}
-.hero-search input{flex:1;border:0;outline:0;padding:13px}.hero-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:var(--shadow)}
-.hero-card .icon{font-size:44px}.hero-card h3{margin:8px 0}.section{padding:38px 0}.section.white{background:#fff}
-.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:18px}.section-head h2{margin:0;font-size:25px}.section-head p{margin:4px 0 0;color:var(--muted)}
-.category-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.cat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 10px;text-align:center}.cat:hover{box-shadow:var(--shadow);transform:translateY(-2px)}.cat .ico{font-size:30px}.cat b{display:block;font-size:14px;margin-top:7px}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(20,50,35,.03);transition:.2s}.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
-.card-img{height:180px;background:#e9efeb;position:relative}.card-img img{width:100%;height:100%;object-fit:cover}.heart{position:absolute;right:10px;top:10px;width:36px;height:36px;border:0;border-radius:50%;background:#fff;font-size:18px}
-.card-body{padding:13px}.card-body h3{margin:0 0 7px;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.price{font-size:18px;font-weight:900;color:var(--orange)}.meta{font-size:12px;color:var(--muted);margin-top:5px}
-.local{background:var(--green-dark);color:#fff;border-radius:20px;padding:34px;display:flex;justify-content:space-between;align-items:center}.local p{max-width:700px;color:#d8efe1}
-footer{background:#13231b;color:#b8c7bf;margin-top:50px}.foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;padding:38px 0}.foot b{color:#fff;display:block;margin-bottom:10px}.foot a,.foot span{display:block;margin:7px 0;font-size:14px}.copy{text-align:center;border-top:1px solid #2a3a32;padding:15px;font-size:12px}
-.modal{position:fixed;inset:0;background:rgba(10,20,15,.48);z-index:50;display:none;align-items:center;justify-content:center;padding:16px}.modal.show{display:flex}.modal-box{background:#fff;width:min(450px,100%);border-radius:17px;padding:24px;position:relative}.close{position:absolute;right:12px;top:10px;border:0;background:#f0f3f1;width:32px;height:32px;border-radius:50%;font-size:20px}
-.form label{display:block;font-size:13px;font-weight:700;margin:12px 0}.form input,.form select,.form textarea{width:100%;border:1px solid #dce5df;border-radius:9px;padding:11px;margin-top:6px;outline:0}.form textarea{min-height:120px}
-.demo-note{background:#fff7e5;border:1px solid #f5dfad;color:#785b1a;padding:10px 12px;border-radius:10px;font-size:13px;margin-top:12px}
-.toast{position:fixed;right:20px;bottom:20px;background:#1d2b24;color:#fff;padding:12px 17px;border-radius:10px;z-index:80;display:none}.toast.show{display:block}
-.panel{background:#fff;border:1px solid var(--line);border-radius:15px;padding:20px}.detail-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:25px}.detail-image{height:430px;border-radius:15px;overflow:hidden;background:#eaf0ec}.detail-image img{width:100%;height:100%;object-fit:cover}.big-price{font-size:28px;font-weight:900;color:var(--orange)}
-.overlay-page{display:none;padding:30px 0;min-height:650px}.overlay-page.show{display:block}
-.back{color:var(--green-dark);font-weight:700;margin-bottom:15px;display:inline-block}
-@media(max-width:900px){.hero-grid,.detail-grid{grid-template-columns:1fr}.category-grid{grid-template-columns:repeat(3,1fr)}.cards{grid-template-columns:repeat(3,1fr)}.foot{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.nav .search{display:none}.logo{font-size:20px}.hero{padding:35px 0}h1{font-size:38px}.category-grid{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:repeat(2,1fr);gap:10px}.card-img{height:145px}.local{display:block}.local .btn{margin-top:12px}.foot{grid-template-columns:1fr}.hero-search{display:block;background:transparent;border:0;box-shadow:none}.hero-search input{background:#fff;border:1px solid var(--line);border-radius:10px;margin-bottom:7px}.hero-search .btn{width:100%}}
+*{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:Inter,Arial,Helvetica,sans-serif;color:var(--t);background:var(--bg);line-height:1.5}
+button,input,select,textarea{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}
+.container{width:min(1200px,calc(100% - 32px));margin:auto}
+.header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+.nav{height:74px;display:flex;align-items:center;gap:16px}.logo{font-weight:900;font-size:25px;white-space:nowrap}.logo span{color:var(--g)}
+.searchbar{flex:1;max-width:620px;display:flex;border:1px solid var(--line);background:#f3f6f4;border-radius:12px;overflow:hidden}
+.searchbar input{flex:1;padding:12px 14px;border:0;outline:0;background:transparent}.searchbar button{border:0;background:var(--g);color:#fff;padding:0 20px;font-weight:800}
+.nav-right{display:flex;align-items:center;gap:7px}.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:800}.primary{background:var(--g);color:#fff}.primary:hover{background:var(--gd)}
+.light{background:var(--gl);color:var(--gd)}.ghost{background:transparent}.soft{background:#f0f4f2}.iconbtn{width:42px;height:42px;border:0;border-radius:10px;background:#f0f4f2}
+.hero{background:linear-gradient(135deg,#e8f8ef,#fbfdfc);padding:60px 0}.hero-grid{display:grid;grid-template-columns:1.45fr .7fr;gap:44px;align-items:center}
+.badge{display:inline-block;background:#dff3e7;color:var(--gd);padding:6px 11px;border-radius:999px;font-size:13px;font-weight:900}
+.hero h1{font-size:54px;line-height:1.03;margin:16px 0 12px}.hero h1 span{color:var(--g)}.hero p{max-width:700px;color:var(--m);font-size:17px}
+.hero-find{display:flex;gap:7px;background:#fff;border:1px solid var(--line);padding:5px;border-radius:14px;max-width:740px;box-shadow:var(--shadow);margin-top:24px}
+.hero-find input{flex:1;border:0;outline:0;padding:13px}.hero-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:var(--shadow)}.hero-card .ico{font-size:46px}
+.section{padding:38px 0}.white{background:#fff}.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:18px}.head h2{margin:0;font-size:25px}.head p{margin:4px 0 0;color:var(--m)}
+.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.cat{border:1px solid var(--line);background:#fff;border-radius:14px;padding:17px 10px;text-align:center}.cat:hover{box-shadow:var(--shadow);transform:translateY(-2px)}.cat .ci{font-size:31px}.cat b{display:block;margin-top:7px;font-size:14px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer}.card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}.photo{height:185px;background:#e9efec;position:relative}.photo img{width:100%;height:100%;object-fit:cover}.fav{position:absolute;right:10px;top:10px;border:0;background:#fff;border-radius:50%;width:36px;height:36px;font-size:18px}.cb{padding:13px}.cb h3{font-size:16px;margin:0 0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.price{font-size:18px;font-weight:900;color:var(--o)}.meta{color:var(--m);font-size:12px;margin-top:5px}
+.banner{background:var(--gd);color:#fff;border-radius:20px;padding:35px;display:flex;align-items:center;justify-content:space-between}.banner p{color:#d8eee1;max-width:700px}
+.page{display:none;padding:28px 0 50px;min-height:680px}.page.active{display:block}.crumb{font-size:13px;color:var(--m);margin-bottom:18px}
+.layout{display:grid;grid-template-columns:260px 1fr;gap:22px}.filter,.panel{background:#fff;border:1px solid var(--line);border-radius:15px;padding:18px}.filter label,.form label{display:block;font-size:13px;font-weight:800;margin:12px 0}.filter input,.filter select,.form input,.form select,.form textarea{width:100%;margin-top:6px;border:1px solid #dce5df;border-radius:9px;padding:11px;outline:none;background:#fff}.form textarea{min-height:120px;resize:vertical}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.detail{display:grid;grid-template-columns:1.15fr .85fr;gap:24px}.gallery{height:470px;border-radius:16px;overflow:hidden;background:#e9efec}.gallery img{width:100%;height:100%;object-fit:cover}.thumbs{display:flex;gap:8px;margin-top:8px}.thumbs img{width:75px;height:65px;object-fit:cover;border-radius:8px;cursor:pointer}.bigprice{font-size:30px;color:var(--o);font-weight:900}.seller{border-top:1px solid var(--line);margin-top:20px;padding-top:18px}.rowbtn{display:flex;gap:8px;margin-top:18px}.rowbtn .btn{flex:1}
+.form-card{max-width:850px;margin:auto;background:#fff;border:1px solid var(--line);padding:24px;border-radius:16px}.drop{border:2px dashed #cad8cf;padding:22px;border-radius:12px;text-align:center;margin-top:7px}
+.account{display:grid;grid-template-columns:230px 1fr;gap:20px}.side{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px;height:max-content}.side button{border:0;background:#fff;width:100%;padding:11px;border-radius:8px;text-align:left}.side button:hover,.side .on{background:var(--gl);color:var(--gd)}
+.table{width:100%;border-collapse:collapse}.table th,.table td{padding:11px 8px;border-bottom:1px solid var(--line);text-align:left;font-size:13px}.status{display:inline-block;padding:4px 8px;border-radius:99px;font-size:11px;font-weight:900}.pending{background:#fff3d7;color:#8e6300}.approved{background:#e1f6e9;color:#087244}.rejected{background:#fde7e7;color:#a22a2a}.hiddenstatus{background:#edf0ee;color:#555}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}.stat{background:#fff;border:1px solid var(--line);border-radius:13px;padding:16px}.stat strong{display:block;font-size:27px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.tabs button{border:0;background:#eef3f0;padding:9px 12px;border-radius:8px;font-weight:800}.tabs .on{background:var(--g);color:#fff}
+.shop-head{display:flex;align-items:center;gap:18px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}.avatar{width:74px;height:74px;border-radius:50%;background:var(--gl);display:grid;place-items:center;font-size:32px}
+.toast{position:fixed;right:20px;bottom:20px;background:#1d2a23;color:#fff;padding:12px 16px;border-radius:10px;z-index:100;display:none}.toast.show{display:block}
+.modal{position:fixed;inset:0;background:rgba(12,22,16,.5);z-index:90;display:none;align-items:center;justify-content:center;padding:16px}.modal.show{display:flex}.modalbox{background:#fff;width:min(500px,100%);border-radius:17px;padding:24px;position:relative}.close{position:absolute;right:11px;top:10px;width:33px;height:33px;border:0;border-radius:50%;background:#f0f3f1;font-size:20px}
+.note{font-size:13px;color:#765e1c;background:#fff7e4;border:1px solid #f2dfb1;padding:10px 12px;border-radius:9px}
+footer{background:#14231b;color:#b8c6bf}.foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;padding:38px 0}.foot b{color:#fff}.foot a,.foot span{display:block;margin:7px 0;font-size:14px}.copy{text-align:center;border-top:1px solid #2b3b33;padding:15px;font-size:12px}
+@media(max-width:900px){.hero-grid,.detail,.account,.layout{grid-template-columns:1fr}.categories{grid-template-columns:repeat(3,1fr)}.cards{grid-template-columns:repeat(3,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.searchbar{display:none}.nav{gap:7px}.logo{font-size:20px}.nav-right .ghost{display:none}.hero h1{font-size:39px}.hero-find{display:block;background:transparent;border:0;box-shadow:none}.hero-find input{background:#fff;border:1px solid var(--line);border-radius:9px;margin-bottom:7px}.hero-find .btn{width:100%}.categories{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:repeat(2,1fr);gap:10px}.photo{height:150px}.grid2{grid-template-columns:1fr}.banner{display:block}.banner .btn{margin-top:10px}.foot{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap nav">
-    <a class="logo" href="#" onclick="home()">Chợ <span>Phú Thọ</span></a>
-    <div class="search">
-      <input id="topSearch" placeholder="Tìm sản phẩm, xe, đồ gia dụng..." onkeydown="if(event.key==='Enter')searchNow()">
-      <button onclick="searchNow()">Tìm kiếm</button>
+
+<header class="header">
+  <div class="container nav">
+    <a class="logo" href="#home" onclick="go('home')">Chợ <span>Phú Thọ</span></a>
+    <div class="searchbar">
+      <input id="searchInput" placeholder="Tìm sản phẩm, xe, đồ cũ, nhà đất..." onkeydown="if(event.key==='Enter')doSearch()">
+      <button onclick="doSearch()">Tìm kiếm</button>
     </div>
-    <div class="actions">
+    <div class="nav-right">
       <button class="btn ghost" onclick="openLogin()">Đăng nhập</button>
-      <button class="btn primary" onclick="openPost()">＋ Đăng tin</button>
-      <button class="menu" onclick="showDemo()">☰</button>
+      <button class="btn primary" onclick="goPost()">＋ Đăng tin</button>
+      <button class="iconbtn" onclick="openAccountMenu()">☰</button>
     </div>
   </div>
 </header>
 
-<main id="home">
+<main id="home" class="page active">
 <section class="hero">
-  <div class="wrap hero-grid">
+  <div class="container hero-grid">
     <div>
       <span class="badge">📍 Việt Trì · Thị xã Phú Thọ</span>
       <h1>Mua bán dễ dàng,<br><span>ngay gần bạn.</span></h1>
-      <p>Chợ Phú Thọ kết nối người mua và người bán trong khu vực. Tìm hàng nhanh, đăng tin đơn giản, thuận tiện xem và giao dịch trực tiếp.</p>
-      <div class="hero-search">
-        <input id="heroSearch" placeholder="Bạn đang tìm gì? Ví dụ: iPhone, tủ lạnh, xe máy..." onkeydown="if(event.key==='Enter')heroSearch()">
-        <button class="btn primary" onclick="heroSearch()">Tìm kiếm</button>
+      <p>Chợ Phú Thọ là nơi người dân đăng bán đồ mới, đồ cũ, xe, điện thoại, nhà đất, dịch vụ và nhiều sản phẩm địa phương.</p>
+      <div class="hero-find">
+        <input id="heroSearch" placeholder="Bạn đang tìm gì? Ví dụ: iPhone, xe máy, tủ lạnh..." onkeydown="if(event.key==='Enter')heroDoSearch()">
+        <button class="btn primary" onclick="heroDoSearch()">Tìm kiếm</button>
       </div>
     </div>
     <div class="hero-card">
-      <div class="icon">🛍️</div>
-      <h3>Bạn có đồ muốn bán?</h3>
-      <p>Đăng tin và tiếp cận người mua ngay tại Phú Thọ.</p>
-      <button class="btn light" onclick="openPost()">Đăng tin ngay →</button>
-      <div class="demo-note">Bản demo giao diện: chưa kết nối cơ sở dữ liệu/API.</div>
+      <div class="ico">🛍️</div>
+      <h3>Bạn có sản phẩm muốn bán?</h3>
+      <p>Đăng tin nhanh, tiếp cận người mua tại Việt Trì và Thị xã Phú Thọ.</p>
+      <button class="btn light" onclick="goPost()">Đăng tin ngay →</button>
+      <div class="note" style="margin-top:12px">Phiên bản HTML này là giao diện V2, sẵn sàng để nối backend.</div>
     </div>
   </div>
 </section>
 
-<section class="section wrap">
-  <div class="section-head"><div><h2>Danh mục phổ biến</h2><p>Chọn danh mục để tìm nhanh hơn</p></div><button class="btn ghost" onclick="toast('Đây là bản preview HTML')">Xem tất cả →</button></div>
-  <div class="category-grid">
-    <button class="cat" onclick="filterCat('Nhà đất')"><div class="ico">🏠</div><b>Nhà đất</b></button>
-    <button class="cat" onclick="filterCat('Xe cộ')"><div class="ico">🚗</div><b>Xe cộ</b></button>
-    <button class="cat" onclick="filterCat('Điện thoại')"><div class="ico">📱</div><b>Điện thoại</b></button>
-    <button class="cat" onclick="filterCat('Điện tử')"><div class="ico">💻</div><b>Điện tử</b></button>
-    <button class="cat" onclick="filterCat('Gia dụng')"><div class="ico">🛋️</div><b>Gia dụng</b></button>
-    <button class="cat" onclick="filterCat('Thời trang')"><div class="ico">👕</div><b>Thời trang</b></button>
-    <button class="cat" onclick="filterCat('Thú cưng')"><div class="ico">🐶</div><b>Thú cưng</b></button>
-    <button class="cat" onclick="filterCat('Nông sản')"><div class="ico">🌾</div><b>Nông sản</b></button>
-    <button class="cat" onclick="filterCat('Dịch vụ')"><div class="ico">🔧</div><b>Dịch vụ</b></button>
-    <button class="cat" onclick="filterCat('Việc làm')"><div class="ico">💼</div><b>Việc làm</b></button>
-    <button class="cat" onclick="filterCat('Đồ cũ')"><div class="ico">♻️</div><b>Đồ cũ</b></button>
-    <button class="cat" onclick="filterCat('Khác')"><div class="ico">📦</div><b>Khác</b></button>
-  </div>
+<section class="section container">
+ <div class="head"><div><h2>Danh mục</h2><p>Tìm đúng nhóm sản phẩm bạn cần</p></div><button class="btn ghost" onclick="toast('Sẽ mở trang danh mục đầy đủ')">Xem tất cả →</button></div>
+ <div class="categories">
+  <button class="cat" onclick="catSearch('Nhà đất')"><div class="ci">🏠</div><b>Nhà đất</b></button>
+  <button class="cat" onclick="catSearch('Xe cộ')"><div class="ci">🚗</div><b>Xe cộ</b></button>
+  <button class="cat" onclick="catSearch('Điện thoại')"><div class="ci">📱</div><b>Điện thoại</b></button>
+  <button class="cat" onclick="catSearch('Điện tử')"><div class="ci">💻</div><b>Điện tử</b></button>
+  <button class="cat" onclick="catSearch('Gia dụng')"><div class="ci">🛋️</div><b>Gia dụng</b></button>
+  <button class="cat" onclick="catSearch('Thời trang')"><div class="ci">👕</div><b>Thời trang</b></button>
+  <button class="cat" onclick="catSearch('Thú cưng')"><div class="ci">🐶</div><b>Thú cưng</b></button>
+  <button class="cat" onclick="catSearch('Nông sản')"><div class="ci">🌾</div><b>Nông sản</b></button>
+  <button class="cat" onclick="catSearch('Dịch vụ')"><div class="ci">🔧</div><b>Dịch vụ</b></button>
+  <button class="cat" onclick="catSearch('Việc làm')"><div class="ci">💼</div><b>Việc làm</b></button>
+  <button class="cat" onclick="catSearch('Đồ cũ')"><div class="ci">♻️</div><b>Đồ cũ</b></button>
+  <button class="cat" onclick="catSearch('Khác')"><div class="ci">📦</div><b>Khác</b></button>
+ </div>
 </section>
 
 <section class="section white">
-<div class="wrap">
-  <div class="section-head"><div><h2>Tin mới tại Phú Thọ</h2><p>Các tin minh họa cho phiên bản đầu tiên</p></div><button class="btn ghost" onclick="searchNow()">Xem tất cả →</button></div>
-  <div class="cards" id="cards"></div>
-</div>
+ <div class="container">
+  <div class="head"><div><h2>Tin mới tại Phú Thọ</h2><p>Tin mẫu để hình dung giao diện thực tế</p></div><button class="btn ghost" onclick="go('search')">Xem tất cả →</button></div>
+  <div class="cards" id="homeCards"></div>
+ </div>
 </section>
 
-<section class="section wrap">
-  <div class="local">
-    <div><span class="badge">💚 Mua bán địa phương</span><h2>Ưu tiên người bán gần bạn</h2><p>Tìm sản phẩm ở Việt Trì hoặc Thị xã Phú Thọ để dễ xem hàng, trao đổi và giao dịch trực tiếp.</p></div>
-    <button class="btn light" onclick="toast('Bộ lọc theo khu vực sẽ được kết nối ở bản backend')">Tìm tin gần bạn</button>
-  </div>
+<section class="section container">
+ <div class="banner">
+  <div><span class="badge">💚 Mua bán địa phương</span><h2>Ưu tiên người bán gần bạn</h2><p>Chọn khu vực Việt Trì hoặc Thị xã Phú Thọ để dễ xem hàng, trao đổi và giao dịch trực tiếp.</p></div>
+  <button class="btn light" onclick="go('search')">Tìm tin gần bạn</button>
+ </div>
 </section>
 </main>
 
-<section id="detailPage" class="overlay-page">
-<div class="wrap"><a class="back" href="#" onclick="home();return false">← Quay lại trang chủ</a><div id="detail"></div></div>
+<section id="search" class="page">
+ <div class="container">
+  <div class="crumb">Trang chủ / Tìm kiếm</div>
+  <div class="layout">
+   <aside class="filter">
+    <h3>Bộ lọc tìm kiếm</h3>
+    <label>Từ khóa<input id="fq" placeholder="Tên sản phẩm"></label>
+    <label>Khu vực<select id="fa"><option value="">Tất cả Phú Thọ</option><option>Việt Trì</option><option>Thị xã Phú Thọ</option></select></label>
+    <label>Tình trạng<select><option>Tất cả</option><option>Mới</option><option>Đã sử dụng</option></select></label>
+    <label>Khoảng giá<select><option>Tất cả mức giá</option><option>Dưới 1 triệu</option><option>1 - 5 triệu</option><option>5 - 20 triệu</option><option>Trên 20 triệu</option></select></label>
+    <label>Sắp xếp<select id="fs"><option>Mới nhất</option><option>Giá thấp → cao</option><option>Giá cao → thấp</option></select></label>
+    <button class="btn primary" style="width:100%;margin-top:8px" onclick="searchPage()">Áp dụng bộ lọc</button>
+   </aside>
+   <section><div class="head"><div><h2 id="searchTitle">Tin đăng</h2><p id="searchCount"></p></div></div><div class="cards" id="searchCards"></div></section>
+  </div>
+ </div>
 </section>
 
-<div class="modal" id="modal">
-  <div class="modal-box">
-    <button class="close" onclick="closeModal()">×</button>
-    <div id="modalBody"></div>
-  </div>
-</div>
+<section id="detail" class="page"><div class="container"><a href="#" class="crumb" onclick="go('home');return false">← Quay lại</a><div id="detailContent"></div></div></section>
+
+<section id="post" class="page"><div class="container">
+ <div class="form-card">
+  <div class="crumb">Trang chủ / Đăng tin</div><h2>Đăng tin bán hàng</h2><p class="meta">Tin mới sẽ được kiểm duyệt trước khi hiển thị.</p>
+  <form class="form" onsubmit="submitPost(event)">
+   <div class="grid2">
+    <label>Tiêu đề *<input id="ptitle" required placeholder="Ví dụ: iPhone 13 128GB máy đẹp"></label>
+    <label>Danh mục *<select id="pcat"><option>Điện thoại</option><option>Xe cộ</option><option>Gia dụng</option><option>Điện tử</option><option>Thời trang</option><option>Nông sản</option><option>Dịch vụ</option><option>Nhà đất</option></select></label>
+    <label>Giá *<input id="pprice" required placeholder="10500000"></label>
+    <label>Hình thức giá<select><option>Giá cố định</option><option>Có thể thương lượng</option></select></label>
+    <label>Tình trạng<select><option>Đã sử dụng</option><option>Mới</option></select></label>
+    <label>Khu vực<select><option>Việt Trì</option><option>Thị xã Phú Thọ</option></select></label>
+    <label>Phường/Xã<input id="pward" placeholder="Ví dụ: Nông Trang"></label>
+    <label>Số điện thoại<input placeholder="09xxxxxxxx"></label>
+    <label style="grid-column:1/-1">Mô tả *<textarea required placeholder="Mô tả tình trạng, đặc điểm, cách liên hệ..."></textarea></label>
+    <label style="grid-column:1/-1">Ảnh sản phẩm<div class="drop"><input type="file" accept="image/*" multiple><div class="meta">Có thể chọn nhiều ảnh, tối đa 8 ảnh.</div></div></label>
+   </div>
+   <button class="btn primary" style="margin-top:16px">Gửi tin chờ duyệt</button>
+  </form>
+ </div>
+</div></section>
+
+<section id="account" class="page"><div class="container"><div class="account"><aside class="side">
+ <button class="on" onclick="accountTab('listings')">📦 Tin của tôi</button>
+ <button onclick="accountTab('favorites')">♥ Tin yêu thích</button>
+ <button onclick="accountTab('shop')">🏪 Cửa hàng</button>
+ <button onclick="toast('Đang chuẩn bị trang tin nhắn')">💬 Tin nhắn</button>
+ <button onclick="logoutDemo()">↪ Đăng xuất</button>
+</aside><section id="accountPanel"></section></div></div></section>
+
+<section id="shop" class="page"><div class="container"><div id="shopContent"></div></div></section>
+
+<section id="admin" class="page"><div class="container">
+ <div class="head"><div><h2>🛠 Quản trị Chợ Phú Thọ</h2><p>Kiểm duyệt tin đăng và quản lý hệ thống</p></div></div>
+ <div class="stats"><div class="stat">Người dùng<strong>284</strong></div><div class="stat">Tin đăng<strong>1.248</strong></div><div class="stat">Chờ duyệt<strong>18</strong></div><div class="stat">Báo cáo mở<strong>5</strong></div></div>
+ <div class="tabs"><button class="on" onclick="adminData('pending')">Chờ duyệt</button><button onclick="adminData('approved')">Đã duyệt</button><button onclick="adminData('reports')">Báo cáo</button><button onclick="adminData('users')">Người dùng</button></div>
+ <div id="adminPanel" class="panel"></div>
+</div></section>
+
+<footer><div class="container foot">
+ <div><div class="logo">Chợ <span>Phú Thọ</span></div><p>Nền tảng mua bán địa phương cho Việt Trì và Thị xã Phú Thọ.</p></div>
+ <div><b>Người mua</b><a href="#" onclick="go('home');return false">Trang chủ</a><a href="#" onclick="go('search');return false">Tìm kiếm</a><a href="#" onclick="toast('Tin yêu thích') ;return false">Tin yêu thích</a></div>
+ <div><b>Người bán</b><a href="#" onclick="goPost();return false">Đăng tin</a><a href="#" onclick="go('account');return false">Quản lý tin</a><a href="#" onclick="go('shop');return false">Cửa hàng</a></div>
+ <div><b>Hỗ trợ</b><span>Quy định đăng tin</span><span>Chính sách bảo mật</span><span>Liên hệ</span></div>
+</div><div class="copy">© 2026 Chợ Phú Thọ — Phiên bản HTML V2.</div></footer>
+
+<div id="modal" class="modal"><div class="modalbox"><button class="close" onclick="closeModal()">×</button><div id="modalBody"></div></div></div>
 <div id="toast" class="toast"></div>
 
-<footer>
-<div class="wrap foot">
-  <div><div class="logo">Chợ <span>Phú Thọ</span></div><p>Marketplace địa phương cho Việt Trì và Thị xã Phú Thọ.</p></div>
-  <div><b>Người mua</b><a href="#">Trang chủ</a><a href="#" onclick="toast('Demo tìm kiếm');return false">Tìm kiếm</a><a href="#" onclick="toast('Demo yêu thích');return false">Tin yêu thích</a></div>
-  <div><b>Người bán</b><a href="#" onclick="openPost();return false">Đăng tin</a><a href="#" onclick="openLogin();return false">Quản lý tin</a><a href="#" onclick="openLogin();return false">Cửa hàng</a></div>
-  <div><b>Hỗ trợ</b><span>Quy định đăng tin</span><span>Chính sách bảo mật</span><span>Liên hệ</span></div>
-</div>
-<div class="copy">© 2026 Chợ Phú Thọ. Bản xem trước HTML.</div>
-</footer>
-
 <script>
-const data=[
- {id:1,title:'iPhone 13 128GB máy đẹp',price:'10.500.000 đ',area:'Việt Trì · Nông Trang',seller:'Cửa hàng Demo',cat:'Điện thoại',img:'https://images.unsplash.com/photo-1592286927505-2fd9e3d8e9a7?auto=format&fit=crop&w=900&q=80'},
- {id:2,title:'Tủ lạnh Toshiba 2 cánh',price:'2.800.000 đ',area:'Việt Trì · Gia Cẩm',seller:'Nguyễn Văn A',cat:'Gia dụng',img:'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=900&q=80'},
- {id:3,title:'Xe máy Honda Vision đã sử dụng',price:'25.500.000 đ',area:'Thị xã Phú Thọ',seller:'Phạm Minh',cat:'Xe cộ',img:'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=80'},
- {id:4,title:'Bàn làm việc gỗ, còn mới',price:'800.000 đ',area:'Việt Trì · Dữu Lâu',seller:'Lê Hương',cat:'Gia dụng',img:'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=900&q=80'},
- {id:5,title:'Laptop văn phòng i5',price:'6.900.000 đ',area:'Việt Trì · Bến Gót',seller:'Tuấn Computer',cat:'Điện tử',img:'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80'},
- {id:6,title:'Áo khoác nam mùa đông',price:'350.000 đ',area:'Thị xã Phú Thọ',seller:'Shop Nam Phú Thọ',cat:'Thời trang',img:'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=80'},
- {id:7,title:'Gà giống thả vườn',price:'80.000 đ/con',area:'Thị xã Phú Thọ',seller:'Nông hộ địa phương',cat:'Nông sản',img:'https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=900&q=80'},
- {id:8,title:'Nhận sửa điện nước tại nhà',price:'Từ 100.000 đ',area:'Việt Trì',seller:'Dịch vụ Minh Đức',cat:'Dịch vụ',img:'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80'}
+const products=[
+{id:1,t:'iPhone 13 128GB máy đẹp',p:'10.500.000 đ',area:'Việt Trì · Nông Trang',seller:'Cửa hàng Demo',cat:'Điện thoại',img:'https://images.unsplash.com/photo-1592286927505-2fd9e3d8e9a7?auto=format&fit=crop&w=900&q=80'},
+{id:2,t:'Tủ lạnh Toshiba 2 cánh',p:'2.800.000 đ',area:'Việt Trì · Gia Cẩm',seller:'Nguyễn Văn A',cat:'Gia dụng',img:'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=900&q=80'},
+{id:3,t:'Honda Vision đã sử dụng',p:'25.500.000 đ',area:'Thị xã Phú Thọ',seller:'Phạm Minh',cat:'Xe cộ',img:'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=80'},
+{id:4,t:'Bàn làm việc gỗ còn mới',p:'800.000 đ',area:'Việt Trì · Dữu Lâu',seller:'Lê Hương',cat:'Gia dụng',img:'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=900&q=80'},
+{id:5,t:'Laptop văn phòng i5',p:'6.900.000 đ',area:'Việt Trì · Bến Gót',seller:'Tuấn Computer',cat:'Điện tử',img:'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80'},
+{id:6,t:'Áo khoác nam mùa đông',p:'350.000 đ',area:'Thị xã Phú Thọ',seller:'Shop Nam Phú Thọ',cat:'Thời trang',img:'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=80'},
+{id:7,t:'Gà giống thả vườn',p:'80.000 đ/con',area:'Thị xã Phú Thọ',seller:'Nông hộ địa phương',cat:'Nông sản',img:'https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=900&q=80'},
+{id:8,t:'Nhận sửa điện nước tại nhà',p:'Từ 100.000 đ',area:'Việt Trì',seller:'Dịch vụ Minh Đức',cat:'Dịch vụ',img:'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80'}
 ];
-let current=data;
-function money(s){return s}
-function render(list=current){
- const el=document.getElementById('cards');
- el.innerHTML=list.map(x=>`
- <article class="card" onclick="detail(${x.id})">
-   <div class="card-img"><img src="${x.img}" alt=""><button class="heart" onclick="event.stopPropagation();fav(${x.id})">♡</button></div>
-   <div class="card-body"><h3>${x.title}</h3><div class="price">${money(x.price)}</div><div class="meta">📍 ${x.area}</div><div class="meta">👤 ${x.seller}</div></div>
- </article>`).join('');
+function $(id){return document.getElementById(id)}
+function money(x){return x}
+function toast(s){$('toast').textContent=s;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2500)}
+function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));$(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});if(id==='search')searchPage();if(id==='account')accountTab('listings');if(id==='shop')shopPage();if(id==='admin')adminData('pending')}
+function goPost(){go('post')}
+function renderCards(list,elId='homeCards'){
+ $(elId).innerHTML=list.map(x=>`<article class="card" onclick="openDetail(${x.id})"><div class="photo"><img src="${x.img}" alt=""><button class="fav" onclick="event.stopPropagation();toast('Đã lưu tin #${x.id}')">♡</button></div><div class="cb"><h3>${x.t}</h3><div class="price">${money(x.p)}</div><div class="meta">📍 ${x.area}</div><div class="meta">👤 ${x.seller}</div></div></article>`).join('')
 }
-function searchNow(){
- const q=(document.getElementById('topSearch').value||'').toLowerCase().trim();
- if(!q){toast('Nhập từ khóa để tìm kiếm');return}
- current=data.filter(x=>(x.title+x.cat+x.area+x.seller).toLowerCase().includes(q));
- render(current);document.getElementById('cards').scrollIntoView({behavior:'smooth',block:'start'});
- toast(`Tìm thấy ${current.length} tin minh họa`);
+function openDetail(id){
+ const x=products.find(v=>v.id===id);go('detail');
+ $('detailContent').innerHTML=`<div class="detail"><div><div class="gallery"><img id="mainPhoto" src="${x.img}" alt=""></div><div class="thumbs"><img src="${x.img}" onclick="$('mainPhoto').src=this.src"><img src="${products[(id)%products.length].img}" onclick="$('mainPhoto').src=this.src"></div></div><div class="panel"><span class="badge">${x.cat}</span><h1 style="font-size:30px">${x.t}</h1><div class="bigprice">${x.p}</div><div class="meta">📍 ${x.area} · 👁 127 lượt xem</div><div style="margin-top:22px"><h3>Mô tả sản phẩm</h3><p class="meta" style="font-size:14px">Sản phẩm đang được bán tại khu vực Phú Thọ. Người mua có thể liên hệ người bán để hỏi thêm thông tin, xem hàng và thống nhất phương thức giao dịch.</p></div><div class="seller"><h3>${x.seller}</h3><div class="meta">📍 ${x.area}</div><div class="rowbtn"><button class="btn light" onclick="toast('Đã lưu tin')">♡ Yêu thích</button><button class="btn primary" onclick="openLogin()">💬 Nhắn người bán</button></div><button class="btn ghost" style="color:var(--red);margin-top:8px" onclick="toast('Đã mở báo cáo tin')">⚑ Báo cáo tin</button></div></div></div>`
 }
-function heroSearch(){document.getElementById('topSearch').value=document.getElementById('heroSearch').value;searchNow()}
-function filterCat(cat){current=data.filter(x=>x.cat.toLowerCase().includes(cat.toLowerCase())||cat==='Khác');render(current);document.getElementById('cards').scrollIntoView({behavior:'smooth'});toast('Đã lọc: '+cat)}
-function detail(id){
- const x=data.find(v=>v.id===id);document.getElementById('home').style.display='none';document.getElementById('detailPage').classList.add('show');
- document.getElementById('detail').innerHTML=`
- <div class="detail-grid">
-  <div class="detail-image"><img src="${x.img}" alt=""></div>
-  <div class="panel">
-   <span class="badge">${x.cat}</span><h1 style="font-size:32px">${x.title}</h1><div class="big-price">${x.price}</div>
-   <p class="meta">📍 ${x.area}</p><p class="meta">👤 Người bán: ${x.seller}</p>
-   <hr style="border:0;border-top:1px solid var(--line);margin:20px 0">
-   <h3>Mô tả</h3><p style="color:var(--muted)">Sản phẩm trong khu vực Phú Thọ. Người mua có thể liên hệ người bán để trao đổi, xem hàng và thống nhất phương thức giao dịch.</p>
-   <div style="display:flex;gap:8px;margin-top:22px"><button class="btn light" onclick="fav(${x.id})">♡ Yêu thích</button><button class="btn primary" onclick="contact()">💬 Nhắn người bán</button></div>
-   <button class="btn ghost" onclick="report()" style="color:#a33;margin-top:8px">⚑ Báo cáo tin</button>
-  </div>
- </div>`;
- window.scrollTo({top:0,behavior:'smooth'});
+function doSearch(){const q=$('searchInput').value.trim();$('fq').value=q;go('search')}
+function heroDoSearch(){$('searchInput').value=$('heroSearch').value;doSearch()}
+function catSearch(c){$('searchInput').value=c;doSearch()}
+function searchPage(){
+ let q=($('fq').value||'').toLowerCase(), area=$('fa').value, list=products.filter(x=>(!q||(x.t+x.cat+x.area+x.seller).toLowerCase().includes(q))&&(!area||x.area.startsWith(area)));
+ $('searchTitle').textContent=q?`Kết quả cho “${$('fq').value}”`:'Tin đăng';$('searchCount').textContent=list.length+' tin mẫu';renderCards(list,'searchCards')
 }
-function home(){document.getElementById('detailPage').classList.remove('show');document.getElementById('home').style.display='block';window.scrollTo({top:0,behavior:'smooth'});return false}
-function fav(id){toast('Đã lưu tin #' + id + ' (demo)')}
-function contact(){openLogin();toast('Đăng nhập để nhắn cho người bán')}
-function report(){toast('Đã mở luồng báo cáo (demo)')}
-function closeModal(){document.getElementById('modal').classList.remove('show')}
 function openLogin(){
- document.getElementById('modalBody').innerHTML=`
- <h2>Đăng nhập Chợ Phú Thọ</h2>
- <div class="form"><label>Email<input type="email" placeholder="you@example.com"></label><label>Mật khẩu<input type="password" placeholder="••••••••"></label><button class="btn primary" style="width:100%;margin-top:8px" onclick="closeModal();toast('Đăng nhập demo thành công')">Đăng nhập</button></div>
- <div class="demo-note">Bản này là HTML preview. Backend, tài khoản thật và cơ sở dữ liệu sẽ được nối ở bước triển khai tiếp theo.</div>`;
- document.getElementById('modal').classList.add('show');
+ $('modalBody').innerHTML=`<h2>Đăng nhập Chợ Phú Thọ</h2><div class="form"><label>Email<input type="email" placeholder="you@example.com"></label><label>Mật khẩu<input type="password" placeholder="••••••••"></label><button class="btn primary" style="width:100%;margin-top:8px" onclick="closeModal();go('account');toast('Đăng nhập demo thành công')">Đăng nhập</button></div><div class="note" style="margin-top:12px">Bản V2 dùng dữ liệu demo. Backend thật sẽ nối ở bước tiếp theo.</div>`;$('modal').classList.add('show')
 }
-function openPost(){
- document.getElementById('modalBody').innerHTML=`
- <h2>Đăng tin bán hàng</h2><p class="meta">Tin mới sẽ được kiểm duyệt trước khi hiển thị.</p>
- <div class="form"><label>Tiêu đề<input placeholder="Ví dụ: iPhone 13 128GB máy đẹp"></label>
- <label>Danh mục<select><option>Điện thoại</option><option>Xe cộ</option><option>Gia dụng</option><option>Điện tử</option><option>Thời trang</option><option>Nông sản</option><option>Dịch vụ</option></select></label>
- <label>Giá<input placeholder="10500000"></label><label>Khu vực<select><option>Việt Trì</option><option>Thị xã Phú Thọ</option></select></label>
- <label>Mô tả<textarea placeholder="Mô tả sản phẩm..."></textarea></label>
- <label>Ảnh sản phẩm<input type="file" multiple accept="image/*"></label>
- <button class="btn primary" style="width:100%;margin-top:6px" onclick="closeModal();toast('Tin đã được gửi chờ duyệt (demo)')">Đăng tin</button></div>`;
- document.getElementById('modal').classList.add('show');
+function closeModal(){$('modal').classList.remove('show')}
+function openAccountMenu(){openLogin()}
+function submitPost(e){e.preventDefault();toast('Tin đã được gửi vào trạng thái CHỜ DUYỆT (demo)');setTimeout(()=>go('account'),500)}
+function accountTab(tab){
+ $('accountPanel').innerHTML=tab==='listings'?`<div class="head"><div><h2>Xin chào, Người dùng</h2><p>Quản lý các tin đăng của bạn</p></div><button class="btn primary" onclick="goPost()">＋ Đăng tin</button></div><div class="panel"><table class="table"><thead><tr><th>Tin đăng</th><th>Giá</th><th>Trạng thái</th><th>Thao tác</th></tr></thead><tbody><tr><td><b>iPhone 13 128GB máy đẹp</b><div class="meta">Điện thoại · Việt Trì</div></td><td>10.500.000 đ</td><td><span class="status pending">Chờ duyệt</span></td><td><button class="btn ghost" onclick="openDetail(1)">Xem</button></td></tr><tr><td><b>Bàn làm việc gỗ còn mới</b><div class="meta">Gia dụng · Dữu Lâu</div></td><td>800.000 đ</td><td><span class="status approved">Đã duyệt</span></td><td><button class="btn ghost" onclick="openDetail(4)">Xem</button></td></tr></tbody></table></div>`:
+ `<div class="head"><div><h2>♥ Tin yêu thích</h2><p>Các tin bạn đã lưu</p></div></div><div class="cards">${products.slice(0,2).map(x=>`<article class="card" onclick="openDetail(${x.id})"><div class="photo"><img src="${x.img}"></div><div class="cb"><h3>${x.t}</h3><div class="price">${x.p}</div><div class="meta">${x.area}</div></div></article>`).join('')}</div>`
 }
-function showDemo(){toast('Menu tài khoản sẽ kết nối với backend ở phiên bản đầy đủ')}
-render();
+function shopPage(){
+ $('shopContent').innerHTML=`<div class="shop-head"><div class="avatar">🏪</div><div><h1 style="margin:0">Cửa hàng Demo Chợ Phú Thọ</h1><div class="meta">📍 Việt Trì · Thành viên từ 2026 · ⭐ 4.9</div><p class="meta" style="font-size:14px">Chuyên điện thoại và đồ điện tử đã qua sử dụng.</p></div><button class="btn primary" style="margin-left:auto" onclick="openLogin()">Liên hệ cửa hàng</button></div><section class="section"><div class="head"><div><h2>Sản phẩm của cửa hàng</h2><p>25 sản phẩm đang hiển thị</p></div></div><div class="cards">${products.filter(x=>x.cat==='Điện thoại'||x.cat==='Điện tử').map(x=>`<article class="card" onclick="openDetail(${x.id})"><div class="photo"><img src="${x.img}"></div><div class="cb"><h3>${x.t}</h3><div class="price">${x.p}</div><div class="meta">${x.area}</div></div></article>`).join('')}</div></section>`
+}
+function adminData(type){
+ const p=$('adminPanel');
+ if(type==='pending')p.innerHTML=`<h3>Tin chờ duyệt</h3><table class="table"><thead><tr><th>Tiêu đề</th><th>Người bán</th><th>Khu vực</th><th>Giá</th><th>Thao tác</th></tr></thead><tbody><tr><td><b>iPhone 13 128GB máy đẹp</b></td><td>Người bán Demo</td><td>Việt Trì</td><td>10.500.000 đ</td><td><button class="btn light" onclick="toast('Đã duyệt tin')">Duyệt</button> <button class="btn ghost" onclick="toast('Đã từ chối tin')">Từ chối</button></td></tr><tr><td><b>Xe máy Honda Vision</b></td><td>Phạm Minh</td><td>TX Phú Thọ</td><td>25.500.000 đ</td><td><button class="btn light" onclick="toast('Đã duyệt tin')">Duyệt</button> <button class="btn ghost" onclick="toast('Đã từ chối tin')">Từ chối</button></td></tr></tbody></table>`;
+ else if(type==='approved')p.innerHTML=`<h3>Tin đã duyệt</h3><p class="meta">Danh sách tin đang hiển thị công khai.</p><div class="cards">${products.slice(0,4).map(x=>`<article class="card" onclick="openDetail(${x.id})"><div class="photo"><img src="${x.img}"></div><div class="cb"><h3>${x.t}</h3><div class="price">${x.p}</div><div class="meta">${x.area}</div></div></article>`).join('')}</div>`;
+ else if(type==='reports')p.innerHTML=`<h3>Báo cáo</h3><table class="table"><tr><th>Tin</th><th>Lý do</th><th>Trạng thái</th><th></th></tr><tr><td>Xe Honda Vision</td><td>Nghi ngờ thông tin sai</td><td><span class="status pending">Đang xử lý</span></td><td><button class="btn ghost" onclick="toast('Đã đóng báo cáo')">Đóng</button></td></tr></table>`;
+ else p.innerHTML=`<h3>Người dùng</h3><table class="table"><tr><th>Họ tên</th><th>Email</th><th>Vai trò</th><th>Tham gia</th></tr><tr><td>Người bán Demo</td><td>seller@chophutho.local</td><td>seller</td><td>2026</td></tr><tr><td>Nguyễn Văn A</td><td>user@example.com</td><td>buyer</td><td>2026</td></tr></table>`
+}
+function logoutDemo(){toast('Đã đăng xuất (demo)');go('home')}
+renderCards(products.slice(0,8));
 </script>
 </body>
 </html>
