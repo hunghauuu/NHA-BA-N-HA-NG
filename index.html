@@ -3,584 +3,212 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gian hàng - Nhà Bếp Việt</title>
-
+<title>Chợ Phú Thọ - Mua bán tại Việt Trì & Thị xã Phú Thọ</title>
+<meta name="description" content="Chợ Phú Thọ - nền tảng mua bán địa phương tại Việt Trì và Thị xã Phú Thọ.">
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+:root{
+  --green:#0f9d5b;--green-dark:#087845;--green-soft:#eaf8f0;
+  --text:#1e2a24;--muted:#6b7a72;--bg:#f5f7f6;--white:#fff;
+  --line:#e2e9e5;--orange:#ed6b2f;--shadow:0 10px 30px rgba(20,50,35,.08);
 }
-
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    color: #222;
-}
-
-.container {
-    max-width: 1200px;
-    margin: auto;
-}
-
-/* HEADER */
-.header {
-    background: white;
-    border-bottom: 1px solid #eee;
-}
-
-.header-inner {
-    height: 70px;
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #1677ff;
-}
-
-.search {
-    flex: 1;
-    display: flex;
-}
-
-.search input {
-    width: 100%;
-    padding: 13px 18px;
-    border: 1px solid #ddd;
-    border-radius: 8px 0 0 8px;
-    outline: none;
-}
-
-.search button {
-    width: 55px;
-    border: none;
-    background: #1677ff;
-    color: white;
-    border-radius: 0 8px 8px 0;
-    cursor: pointer;
-}
-
-.cart {
-    font-size: 25px;
-}
-
-/* SHOP HEADER */
-.shop-header {
-    background: white;
-    margin-top: 15px;
-    padding: 25px;
-    border-radius: 12px;
-}
-
-.shop-info {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.shop-logo {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background: #1677ff;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 35px;
-}
-
-.shop-name {
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.shop-rating {
-    color: #ff9800;
-    margin-top: 8px;
-}
-
-.shop-description {
-    color: #777;
-    margin-top: 8px;
-}
-
-/* CATEGORY */
-.categories {
-    background: white;
-    margin-top: 15px;
-    padding: 20px;
-    border-radius: 12px;
-}
-
-.categories h2 {
-    margin-bottom: 15px;
-}
-
-.category-list {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.category {
-    padding: 12px 20px;
-    background: #f2f6ff;
-    color: #1677ff;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.category.active {
-    background: #1677ff;
-    color: white;
-}
-
-/* BANNER */
-.banner {
-    margin-top: 15px;
-    border-radius: 12px;
-    padding: 45px;
-    background: linear-gradient(100deg, #1677ff, #55a5ff);
-    color: white;
-}
-
-.banner h1 {
-    font-size: 34px;
-}
-
-.banner p {
-    margin-top: 12px;
-}
-
-/* PRODUCTS */
-.products-section {
-    margin-top: 20px;
-}
-
-.products-section h2 {
-    margin-bottom: 15px;
-}
-
-.products {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
-}
-
-.product {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: 0.2s;
-}
-
-.product:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 5px 20px rgba(0,0,0,.08);
-}
-
-.product-image {
-    height: 180px;
-    background: #f1f1f1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 60px;
-}
-
-.product-info {
-    padding: 14px;
-}
-
-.product-name {
-    height: 42px;
-    line-height: 21px;
-}
-
-.price {
-    color: #e53935;
-    font-size: 19px;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.old-price {
-    color: #999;
-    text-decoration: line-through;
-    font-size: 13px;
-}
-
-.rating {
-    color: #ff9800;
-    font-size: 13px;
-    margin-top: 7px;
-}
-
-.buy {
-    width: 100%;
-    border: none;
-    padding: 10px;
-    margin-top: 10px;
-    background: #1677ff;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-/* RESPONSIVE */
-@media(max-width: 900px) {
-    .products {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media(max-width: 600px) {
-    .header-inner {
-        gap: 10px;
-    }
-
-    .logo {
-        font-size: 18px;
-    }
-
-    .products {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .product-image {
-        height: 140px;
-    }
-
-    .banner {
-        padding: 25px;
-    }
-
-    .banner h1 {
-        font-size: 25px;
-    }
-}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
+button,input,select,textarea{font:inherit}button{cursor:pointer}
+a{text-decoration:none;color:inherit}.wrap{width:min(1180px,calc(100% - 30px));margin:auto}
+header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+.nav{height:74px;display:flex;align-items:center;gap:18px}.logo{font-size:25px;font-weight:900;white-space:nowrap}.logo span{color:var(--green)}
+.search{display:flex;flex:1;max-width:610px;border:1px solid var(--line);background:#f4f6f5;border-radius:12px;overflow:hidden}
+.search input{flex:1;border:0;outline:0;background:transparent;padding:12px 14px}.search button{border:0;background:var(--green);color:#fff;padding:0 18px;font-weight:700}
+.actions{display:flex;align-items:center;gap:8px}.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:700}.btn.primary{background:var(--green);color:#fff}.btn.primary:hover{background:var(--green-dark)}
+.btn.light{background:var(--green-soft);color:var(--green-dark)}.btn.ghost{background:transparent}.menu{background:#f0f4f2;padding:10px;border-radius:10px}
+.hero{background:linear-gradient(135deg,#e8f8ef,#f8fcfa);padding:54px 0}.hero-grid{display:grid;grid-template-columns:1.45fr .72fr;gap:40px;align-items:center}
+.badge{display:inline-block;background:#dff4e8;color:var(--green-dark);padding:6px 10px;border-radius:999px;font-size:13px;font-weight:800}
+h1{font-size:48px;line-height:1.05;margin:15px 0}.hero h1 span{color:var(--green)}.hero p{font-size:17px;color:var(--muted);max-width:680px}
+.hero-search{display:flex;background:#fff;border:1px solid var(--line);padding:5px;border-radius:14px;box-shadow:var(--shadow);max-width:720px;margin-top:22px}
+.hero-search input{flex:1;border:0;outline:0;padding:13px}.hero-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:var(--shadow)}
+.hero-card .icon{font-size:44px}.hero-card h3{margin:8px 0}.section{padding:38px 0}.section.white{background:#fff}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:18px}.section-head h2{margin:0;font-size:25px}.section-head p{margin:4px 0 0;color:var(--muted)}
+.category-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.cat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 10px;text-align:center}.cat:hover{box-shadow:var(--shadow);transform:translateY(-2px)}.cat .ico{font-size:30px}.cat b{display:block;font-size:14px;margin-top:7px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(20,50,35,.03);transition:.2s}.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.card-img{height:180px;background:#e9efeb;position:relative}.card-img img{width:100%;height:100%;object-fit:cover}.heart{position:absolute;right:10px;top:10px;width:36px;height:36px;border:0;border-radius:50%;background:#fff;font-size:18px}
+.card-body{padding:13px}.card-body h3{margin:0 0 7px;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.price{font-size:18px;font-weight:900;color:var(--orange)}.meta{font-size:12px;color:var(--muted);margin-top:5px}
+.local{background:var(--green-dark);color:#fff;border-radius:20px;padding:34px;display:flex;justify-content:space-between;align-items:center}.local p{max-width:700px;color:#d8efe1}
+footer{background:#13231b;color:#b8c7bf;margin-top:50px}.foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;padding:38px 0}.foot b{color:#fff;display:block;margin-bottom:10px}.foot a,.foot span{display:block;margin:7px 0;font-size:14px}.copy{text-align:center;border-top:1px solid #2a3a32;padding:15px;font-size:12px}
+.modal{position:fixed;inset:0;background:rgba(10,20,15,.48);z-index:50;display:none;align-items:center;justify-content:center;padding:16px}.modal.show{display:flex}.modal-box{background:#fff;width:min(450px,100%);border-radius:17px;padding:24px;position:relative}.close{position:absolute;right:12px;top:10px;border:0;background:#f0f3f1;width:32px;height:32px;border-radius:50%;font-size:20px}
+.form label{display:block;font-size:13px;font-weight:700;margin:12px 0}.form input,.form select,.form textarea{width:100%;border:1px solid #dce5df;border-radius:9px;padding:11px;margin-top:6px;outline:0}.form textarea{min-height:120px}
+.demo-note{background:#fff7e5;border:1px solid #f5dfad;color:#785b1a;padding:10px 12px;border-radius:10px;font-size:13px;margin-top:12px}
+.toast{position:fixed;right:20px;bottom:20px;background:#1d2b24;color:#fff;padding:12px 17px;border-radius:10px;z-index:80;display:none}.toast.show{display:block}
+.panel{background:#fff;border:1px solid var(--line);border-radius:15px;padding:20px}.detail-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:25px}.detail-image{height:430px;border-radius:15px;overflow:hidden;background:#eaf0ec}.detail-image img{width:100%;height:100%;object-fit:cover}.big-price{font-size:28px;font-weight:900;color:var(--orange)}
+.overlay-page{display:none;padding:30px 0;min-height:650px}.overlay-page.show{display:block}
+.back{color:var(--green-dark);font-weight:700;margin-bottom:15px;display:inline-block}
+@media(max-width:900px){.hero-grid,.detail-grid{grid-template-columns:1fr}.category-grid{grid-template-columns:repeat(3,1fr)}.cards{grid-template-columns:repeat(3,1fr)}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.nav .search{display:none}.logo{font-size:20px}.hero{padding:35px 0}h1{font-size:38px}.category-grid{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:repeat(2,1fr);gap:10px}.card-img{height:145px}.local{display:block}.local .btn{margin-top:12px}.foot{grid-template-columns:1fr}.hero-search{display:block;background:transparent;border:0;box-shadow:none}.hero-search input{background:#fff;border:1px solid var(--line);border-radius:10px;margin-bottom:7px}.hero-search .btn{width:100%}}
 </style>
 </head>
-
 <body>
-
-<header class="header">
-    <div class="container header-inner">
-
-        <div class="logo">
-            🛍️ MarketPlace
-        </div>
-
-        <div class="search">
-            <input
-                type="text"
-                placeholder="Tìm kiếm sản phẩm trong cửa hàng..."
-                id="searchInput"
-            >
-            <button onclick="searchProduct()">🔍</button>
-        </div>
-
-        <div class="cart">
-            🛒
-        </div>
-
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#" onclick="home()">Chợ <span>Phú Thọ</span></a>
+    <div class="search">
+      <input id="topSearch" placeholder="Tìm sản phẩm, xe, đồ gia dụng..." onkeydown="if(event.key==='Enter')searchNow()">
+      <button onclick="searchNow()">Tìm kiếm</button>
     </div>
+    <div class="actions">
+      <button class="btn ghost" onclick="openLogin()">Đăng nhập</button>
+      <button class="btn primary" onclick="openPost()">＋ Đăng tin</button>
+      <button class="menu" onclick="showDemo()">☰</button>
+    </div>
+  </div>
 </header>
 
-
-<main class="container">
-
-    <!-- SHOP -->
-    <section class="shop-header">
-
-        <div class="shop-info">
-
-            <div class="shop-logo">
-                🏠
-            </div>
-
-            <div>
-                <div class="shop-name">
-                    Nhà Bếp Việt
-                </div>
-
-                <div class="shop-rating">
-                    ⭐ 4.9 · 2.5K đánh giá
-                </div>
-
-                <div class="shop-description">
-                    Đồ ăn ngon • Đồ gia dụng • Sản phẩm tiện ích cho gia đình
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CATEGORY -->
-    <section class="categories">
-
-        <h2>Danh mục sản phẩm</h2>
-
-        <div class="category-list">
-
-            <div class="category active">
-                Tất cả
-            </div>
-
-            <div class="category">
-                🍜 Đồ ăn
-            </div>
-
-            <div class="category">
-                🥤 Đồ uống
-            </div>
-
-            <div class="category">
-                🍳 Đồ nhà bếp
-            </div>
-
-            <div class="category">
-                🧹 Đồ gia dụng
-            </div>
-
-            <div class="category">
-                🧺 Đồ dùng gia đình
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- BANNER -->
-    <section class="banner">
-
-        <h1>
-            Ưu đãi đặc biệt hôm nay
-        </h1>
-
-        <p>
-            Giảm đến 30% cho các sản phẩm đồ ăn và gia dụng
-        </p>
-
-    </section>
-
-
-    <!-- PRODUCTS -->
-    <section class="products-section">
-
-        <h2>
-            🔥 Sản phẩm bán chạy
-        </h2>
-
-        <div class="products" id="products">
-
-            <div class="product">
-
-                <div class="product-image">
-                    🍜
-                </div>
-
-                <div class="product-info">
-
-                    <div class="product-name">
-                        Mì cay Hàn Quốc vị bò
-                    </div>
-
-                    <div class="price">
-                        45.000đ
-                    </div>
-
-                    <div class="old-price">
-                        55.000đ
-                    </div>
-
-                    <div class="rating">
-                        ⭐ 4.9 · Đã bán 1.2K
-                    </div>
-
-                    <button class="buy">
-                        Thêm vào giỏ
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div class="product">
-
-                <div class="product-image">
-                    🍯
-                </div>
-
-                <div class="product-info">
-
-                    <div class="product-name">
-                        Mật ong nguyên chất
-                    </div>
-
-                    <div class="price">
-                        120.000đ
-                    </div>
-
-                    <div class="old-price">
-                        150.000đ
-                    </div>
-
-                    <div class="rating">
-                        ⭐ 4.8 · Đã bán 860
-                    </div>
-
-                    <button class="buy">
-                        Thêm vào giỏ
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div class="product">
-
-                <div class="product-image">
-                    🍳
-                </div>
-
-                <div class="product-info">
-
-                    <div class="product-name">
-                        Chảo chống dính cao cấp
-                    </div>
-
-                    <div class="price">
-                        299.000đ
-                    </div>
-
-                    <div class="old-price">
-                        399.000đ
-                    </div>
-
-                    <div class="rating">
-                        ⭐ 4.9 · Đã bán 2.1K
-                    </div>
-
-                    <button class="buy">
-                        Thêm vào giỏ
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div class="product">
-
-                <div class="product-image">
-                    🧹
-                </div>
-
-                <div class="product-info">
-
-                    <div class="product-name">
-                        Bộ dụng cụ vệ sinh nhà cửa
-                    </div>
-
-                    <div class="price">
-                        189.000đ
-                    </div>
-
-                    <div class="old-price">
-                        230.000đ
-                    </div>
-
-                    <div class="rating">
-                        ⭐ 4.7 · Đã bán 750
-                    </div>
-
-                    <button class="buy">
-                        Thêm vào giỏ
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div class="product">
-
-                <div class="product-image">
-                    🍚
-                </div>
-
-                <div class="product-info">
-
-                    <div class="product-name">
-                        Gạo ST25 cao cấp 5kg
-                    </div>
-
-                    <div class="price">
-                        145.000đ
-                    </div>
-
-                    <div class="old-price">
-                        175.000đ
-                    </div>
-
-                    <div class="rating">
-                        ⭐ 4.9 · Đã bán 3.5K
-                    </div>
-
-                    <button class="buy">
-                        Thêm vào giỏ
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
+<main id="home">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge">📍 Việt Trì · Thị xã Phú Thọ</span>
+      <h1>Mua bán dễ dàng,<br><span>ngay gần bạn.</span></h1>
+      <p>Chợ Phú Thọ kết nối người mua và người bán trong khu vực. Tìm hàng nhanh, đăng tin đơn giản, thuận tiện xem và giao dịch trực tiếp.</p>
+      <div class="hero-search">
+        <input id="heroSearch" placeholder="Bạn đang tìm gì? Ví dụ: iPhone, tủ lạnh, xe máy..." onkeydown="if(event.key==='Enter')heroSearch()">
+        <button class="btn primary" onclick="heroSearch()">Tìm kiếm</button>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="icon">🛍️</div>
+      <h3>Bạn có đồ muốn bán?</h3>
+      <p>Đăng tin và tiếp cận người mua ngay tại Phú Thọ.</p>
+      <button class="btn light" onclick="openPost()">Đăng tin ngay →</button>
+      <div class="demo-note">Bản demo giao diện: chưa kết nối cơ sở dữ liệu/API.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap">
+  <div class="section-head"><div><h2>Danh mục phổ biến</h2><p>Chọn danh mục để tìm nhanh hơn</p></div><button class="btn ghost" onclick="toast('Đây là bản preview HTML')">Xem tất cả →</button></div>
+  <div class="category-grid">
+    <button class="cat" onclick="filterCat('Nhà đất')"><div class="ico">🏠</div><b>Nhà đất</b></button>
+    <button class="cat" onclick="filterCat('Xe cộ')"><div class="ico">🚗</div><b>Xe cộ</b></button>
+    <button class="cat" onclick="filterCat('Điện thoại')"><div class="ico">📱</div><b>Điện thoại</b></button>
+    <button class="cat" onclick="filterCat('Điện tử')"><div class="ico">💻</div><b>Điện tử</b></button>
+    <button class="cat" onclick="filterCat('Gia dụng')"><div class="ico">🛋️</div><b>Gia dụng</b></button>
+    <button class="cat" onclick="filterCat('Thời trang')"><div class="ico">👕</div><b>Thời trang</b></button>
+    <button class="cat" onclick="filterCat('Thú cưng')"><div class="ico">🐶</div><b>Thú cưng</b></button>
+    <button class="cat" onclick="filterCat('Nông sản')"><div class="ico">🌾</div><b>Nông sản</b></button>
+    <button class="cat" onclick="filterCat('Dịch vụ')"><div class="ico">🔧</div><b>Dịch vụ</b></button>
+    <button class="cat" onclick="filterCat('Việc làm')"><div class="ico">💼</div><b>Việc làm</b></button>
+    <button class="cat" onclick="filterCat('Đồ cũ')"><div class="ico">♻️</div><b>Đồ cũ</b></button>
+    <button class="cat" onclick="filterCat('Khác')"><div class="ico">📦</div><b>Khác</b></button>
+  </div>
+</section>
+
+<section class="section white">
+<div class="wrap">
+  <div class="section-head"><div><h2>Tin mới tại Phú Thọ</h2><p>Các tin minh họa cho phiên bản đầu tiên</p></div><button class="btn ghost" onclick="searchNow()">Xem tất cả →</button></div>
+  <div class="cards" id="cards"></div>
+</div>
+</section>
+
+<section class="section wrap">
+  <div class="local">
+    <div><span class="badge">💚 Mua bán địa phương</span><h2>Ưu tiên người bán gần bạn</h2><p>Tìm sản phẩm ở Việt Trì hoặc Thị xã Phú Thọ để dễ xem hàng, trao đổi và giao dịch trực tiếp.</p></div>
+    <button class="btn light" onclick="toast('Bộ lọc theo khu vực sẽ được kết nối ở bản backend')">Tìm tin gần bạn</button>
+  </div>
+</section>
 </main>
 
+<section id="detailPage" class="overlay-page">
+<div class="wrap"><a class="back" href="#" onclick="home();return false">← Quay lại trang chủ</a><div id="detail"></div></div>
+</section>
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal()">×</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+<div id="toast" class="toast"></div>
+
+<footer>
+<div class="wrap foot">
+  <div><div class="logo">Chợ <span>Phú Thọ</span></div><p>Marketplace địa phương cho Việt Trì và Thị xã Phú Thọ.</p></div>
+  <div><b>Người mua</b><a href="#">Trang chủ</a><a href="#" onclick="toast('Demo tìm kiếm');return false">Tìm kiếm</a><a href="#" onclick="toast('Demo yêu thích');return false">Tin yêu thích</a></div>
+  <div><b>Người bán</b><a href="#" onclick="openPost();return false">Đăng tin</a><a href="#" onclick="openLogin();return false">Quản lý tin</a><a href="#" onclick="openLogin();return false">Cửa hàng</a></div>
+  <div><b>Hỗ trợ</b><span>Quy định đăng tin</span><span>Chính sách bảo mật</span><span>Liên hệ</span></div>
+</div>
+<div class="copy">© 2026 Chợ Phú Thọ. Bản xem trước HTML.</div>
+</footer>
 
 <script>
-
-function searchProduct() {
-
-    const keyword =
-        document.getElementById("searchInput").value.toLowerCase();
-
-    const products =
-        document.querySelectorAll(".product");
-
-    products.forEach(product => {
-
-        const name =
-            product.querySelector(".product-name")
-            .innerText
-            .toLowerCase();
-
-        if (name.includes(keyword)) {
-            product.style.display = "block";
-        } else {
-            product.style.display = "none";
-        }
-
-    });
-
+const data=[
+ {id:1,title:'iPhone 13 128GB máy đẹp',price:'10.500.000 đ',area:'Việt Trì · Nông Trang',seller:'Cửa hàng Demo',cat:'Điện thoại',img:'https://images.unsplash.com/photo-1592286927505-2fd9e3d8e9a7?auto=format&fit=crop&w=900&q=80'},
+ {id:2,title:'Tủ lạnh Toshiba 2 cánh',price:'2.800.000 đ',area:'Việt Trì · Gia Cẩm',seller:'Nguyễn Văn A',cat:'Gia dụng',img:'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=900&q=80'},
+ {id:3,title:'Xe máy Honda Vision đã sử dụng',price:'25.500.000 đ',area:'Thị xã Phú Thọ',seller:'Phạm Minh',cat:'Xe cộ',img:'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=80'},
+ {id:4,title:'Bàn làm việc gỗ, còn mới',price:'800.000 đ',area:'Việt Trì · Dữu Lâu',seller:'Lê Hương',cat:'Gia dụng',img:'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=900&q=80'},
+ {id:5,title:'Laptop văn phòng i5',price:'6.900.000 đ',area:'Việt Trì · Bến Gót',seller:'Tuấn Computer',cat:'Điện tử',img:'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80'},
+ {id:6,title:'Áo khoác nam mùa đông',price:'350.000 đ',area:'Thị xã Phú Thọ',seller:'Shop Nam Phú Thọ',cat:'Thời trang',img:'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=80'},
+ {id:7,title:'Gà giống thả vườn',price:'80.000 đ/con',area:'Thị xã Phú Thọ',seller:'Nông hộ địa phương',cat:'Nông sản',img:'https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=900&q=80'},
+ {id:8,title:'Nhận sửa điện nước tại nhà',price:'Từ 100.000 đ',area:'Việt Trì',seller:'Dịch vụ Minh Đức',cat:'Dịch vụ',img:'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80'}
+];
+let current=data;
+function money(s){return s}
+function render(list=current){
+ const el=document.getElementById('cards');
+ el.innerHTML=list.map(x=>`
+ <article class="card" onclick="detail(${x.id})">
+   <div class="card-img"><img src="${x.img}" alt=""><button class="heart" onclick="event.stopPropagation();fav(${x.id})">♡</button></div>
+   <div class="card-body"><h3>${x.title}</h3><div class="price">${money(x.price)}</div><div class="meta">📍 ${x.area}</div><div class="meta">👤 ${x.seller}</div></div>
+ </article>`).join('');
 }
-
+function searchNow(){
+ const q=(document.getElementById('topSearch').value||'').toLowerCase().trim();
+ if(!q){toast('Nhập từ khóa để tìm kiếm');return}
+ current=data.filter(x=>(x.title+x.cat+x.area+x.seller).toLowerCase().includes(q));
+ render(current);document.getElementById('cards').scrollIntoView({behavior:'smooth',block:'start'});
+ toast(`Tìm thấy ${current.length} tin minh họa`);
+}
+function heroSearch(){document.getElementById('topSearch').value=document.getElementById('heroSearch').value;searchNow()}
+function filterCat(cat){current=data.filter(x=>x.cat.toLowerCase().includes(cat.toLowerCase())||cat==='Khác');render(current);document.getElementById('cards').scrollIntoView({behavior:'smooth'});toast('Đã lọc: '+cat)}
+function detail(id){
+ const x=data.find(v=>v.id===id);document.getElementById('home').style.display='none';document.getElementById('detailPage').classList.add('show');
+ document.getElementById('detail').innerHTML=`
+ <div class="detail-grid">
+  <div class="detail-image"><img src="${x.img}" alt=""></div>
+  <div class="panel">
+   <span class="badge">${x.cat}</span><h1 style="font-size:32px">${x.title}</h1><div class="big-price">${x.price}</div>
+   <p class="meta">📍 ${x.area}</p><p class="meta">👤 Người bán: ${x.seller}</p>
+   <hr style="border:0;border-top:1px solid var(--line);margin:20px 0">
+   <h3>Mô tả</h3><p style="color:var(--muted)">Sản phẩm trong khu vực Phú Thọ. Người mua có thể liên hệ người bán để trao đổi, xem hàng và thống nhất phương thức giao dịch.</p>
+   <div style="display:flex;gap:8px;margin-top:22px"><button class="btn light" onclick="fav(${x.id})">♡ Yêu thích</button><button class="btn primary" onclick="contact()">💬 Nhắn người bán</button></div>
+   <button class="btn ghost" onclick="report()" style="color:#a33;margin-top:8px">⚑ Báo cáo tin</button>
+  </div>
+ </div>`;
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function home(){document.getElementById('detailPage').classList.remove('show');document.getElementById('home').style.display='block';window.scrollTo({top:0,behavior:'smooth'});return false}
+function fav(id){toast('Đã lưu tin #' + id + ' (demo)')}
+function contact(){openLogin();toast('Đăng nhập để nhắn cho người bán')}
+function report(){toast('Đã mở luồng báo cáo (demo)')}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function openLogin(){
+ document.getElementById('modalBody').innerHTML=`
+ <h2>Đăng nhập Chợ Phú Thọ</h2>
+ <div class="form"><label>Email<input type="email" placeholder="you@example.com"></label><label>Mật khẩu<input type="password" placeholder="••••••••"></label><button class="btn primary" style="width:100%;margin-top:8px" onclick="closeModal();toast('Đăng nhập demo thành công')">Đăng nhập</button></div>
+ <div class="demo-note">Bản này là HTML preview. Backend, tài khoản thật và cơ sở dữ liệu sẽ được nối ở bước triển khai tiếp theo.</div>`;
+ document.getElementById('modal').classList.add('show');
+}
+function openPost(){
+ document.getElementById('modalBody').innerHTML=`
+ <h2>Đăng tin bán hàng</h2><p class="meta">Tin mới sẽ được kiểm duyệt trước khi hiển thị.</p>
+ <div class="form"><label>Tiêu đề<input placeholder="Ví dụ: iPhone 13 128GB máy đẹp"></label>
+ <label>Danh mục<select><option>Điện thoại</option><option>Xe cộ</option><option>Gia dụng</option><option>Điện tử</option><option>Thời trang</option><option>Nông sản</option><option>Dịch vụ</option></select></label>
+ <label>Giá<input placeholder="10500000"></label><label>Khu vực<select><option>Việt Trì</option><option>Thị xã Phú Thọ</option></select></label>
+ <label>Mô tả<textarea placeholder="Mô tả sản phẩm..."></textarea></label>
+ <label>Ảnh sản phẩm<input type="file" multiple accept="image/*"></label>
+ <button class="btn primary" style="width:100%;margin-top:6px" onclick="closeModal();toast('Tin đã được gửi chờ duyệt (demo)')">Đăng tin</button></div>`;
+ document.getElementById('modal').classList.add('show');
+}
+function showDemo(){toast('Menu tài khoản sẽ kết nối với backend ở phiên bản đầy đủ')}
+render();
 </script>
-
 </body>
 </html>
